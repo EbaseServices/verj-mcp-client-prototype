@@ -1,4 +1,4 @@
-#verj-mcp-client-prototype
+# verj-mcp-client-prototype
 This is just a prototype/POC project. This probably will never become production-ready.
 
 It may be useful to someone as a starting point to create MCP clients. 
