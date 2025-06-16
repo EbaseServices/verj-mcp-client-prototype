@@ -2,9 +2,9 @@ import instructor
 from abc import ABC
 
 
-class Client(ABC): 
-    
-    def getClient(self, name:str, model:str) -> instructor.client.AsyncInstructor: 
+class Client(ABC):
+
+    def getClient(self, name: str, model: str) -> instructor.client.AsyncInstructor:
         """
         Get the client for this llm.
 
