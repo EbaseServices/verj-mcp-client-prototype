@@ -1,10 +1,21 @@
 import logging
+import instructor
+from langfuse.openai import OpenAI
+
 from .client import Client
 
 # Logging
 _logger = logging.getLogger(__name__) # module name
 
 class OpenAIClient(Client) :
-    pass
-    # This class can be extended in the future to include OpenAI-specific methods or properties.
-    # For now, it inherits from the base Client class.
+
+    def getClient(self, name:str, model:str) -> instructor.client.AsyncInstructor :
+        """
+        Get the OpenAI client.
+
+        Returns:
+            instructor.client.AsyncInstructor: The OpenAI client.
+        """
+        instructor.patch(OpenAI()) # integrate with instructor with langfuse to calls to OpenAI can be traced
+        return super().getClient(name, model)
+        

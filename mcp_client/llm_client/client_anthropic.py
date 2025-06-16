@@ -1,6 +1,15 @@
+import instructor
+from anthropic import Anthropic
+from opentelemetry.instrumentation.anthropic import AnthropicInstrumentor
 from .client import Client
 
 class AnthropicClient(Client) :
-    pass
-    # This class can be extended in the future to include OpenAI-specific methods or properties.
-    # For now, it inherits from the base Client class.
+    def getClient(self, name:str, model:str) -> instructor.client.AsyncInstructor :
+        """
+        Get the client for anthropic-based models.
+
+        Returns:
+            instructor.client.AsyncInstructor: The OpenAI client.
+        """
+        AnthropicInstrumentor().instrument()
+        return super().getClient(name, model)

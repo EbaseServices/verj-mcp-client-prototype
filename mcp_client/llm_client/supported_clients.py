@@ -8,7 +8,7 @@ from .client import Client
 from .client_openai import OpenAIClient
 from .client_anthropic import AnthropicClient
 
-class SupportedClients(Enum) :
+class SupportedClient(Enum) :
 
     OPENAI = "openai", "OPENAI_DEFAULT_MODEL", "OPENAI_API_KEY", OpenAIClient  # OpenAI LLM
     ANTHROPIC = "anthropic", "ANTHROPIC_DEFAULT_MODEL", "ANTHROPIC_API_KEY", AnthropicClient  # Anthropic LLM

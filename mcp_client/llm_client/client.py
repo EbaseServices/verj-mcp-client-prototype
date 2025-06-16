@@ -1,10 +1,10 @@
 import instructor
-from abc import ABC, abstractmethod
+from abc import ABC
 
 class Client(ABC) :
     def getClient(self, name:str, model:str) -> instructor.client.AsyncInstructor :
         """
-        Get the OpenAI client.
+        Get the client for this llm.
 
         Returns:
             instructor.client.AsyncInstructor: The OpenAI client.

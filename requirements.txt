@@ -1,4 +1,6 @@
 anthropic
 instructor
+langfuse
 python-dotenv
 pytest
+opentelemetry-instrumentation-anthropic # So we can trace Anthropic calls (langfuse is not integrated with Anthropic in the same way as OpenAI)
