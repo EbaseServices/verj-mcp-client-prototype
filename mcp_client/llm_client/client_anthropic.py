@@ -1,9 +1,10 @@
 import instructor
-from anthropic import Anthropic
 from opentelemetry.instrumentation.anthropic import AnthropicInstrumentor
 from .client import Client
 
+
 class AnthropicClient(Client) :
+    
     def getClient(self, name:str, model:str) -> instructor.client.AsyncInstructor :
         """
         Get the client for anthropic-based models.
@@ -13,3 +14,4 @@ class AnthropicClient(Client) :
         """
         AnthropicInstrumentor().instrument()
         return super().getClient(name, model)
+    

@@ -3,12 +3,13 @@ import logging.handlers
 import sys
 import os.path
 
+
 # Logging
 _logger = logging.getLogger(__name__) # module name
 
 
 # Call once to set up logging.
-def setupRootLogging(logToFile:str):
+def setupRootLogging(logToFile:str): 
   """
   Sets up the root logger to log to both stdout and a file.
   This function creates a directory for the log file if it does not exist,
@@ -35,3 +36,4 @@ def setupRootLogging(logToFile:str):
   root.addHandler(file_handler)
 
   _logger.debug("Logging set up")
+  

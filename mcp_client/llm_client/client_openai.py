@@ -1,11 +1,8 @@
 import logging
 import instructor
 from langfuse.openai import OpenAI
-
 from .client import Client
 
-# Logging
-_logger = logging.getLogger(__name__) # module name
 
 class OpenAIClient(Client) :
 

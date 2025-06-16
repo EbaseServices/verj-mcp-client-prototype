@@ -8,13 +8,12 @@ from .client import Client
 from .client_openai import OpenAIClient
 from .client_anthropic import AnthropicClient
 
-class SupportedClient(Enum) :
 
+class SupportedClient(Enum): 
     OPENAI = "openai", "OPENAI_DEFAULT_MODEL", "OPENAI_API_KEY", OpenAIClient  # OpenAI LLM
     ANTHROPIC = "anthropic", "ANTHROPIC_DEFAULT_MODEL", "ANTHROPIC_API_KEY", AnthropicClient  # Anthropic LLM
 
-
-    def __init__(self, llm_name:str, default_model:str, api_key:str, client_class:Type[Client]) :
+    def __init__(self, llm_name:str, default_model:str, api_key:str, client_class:Type[Client]): 
         """
         Initialize the SupportedClients enum with the LLM name, API key environment variable, and model environment variable.
 
@@ -30,7 +29,7 @@ class SupportedClient(Enum) :
         self._client_class:Type[Client] = client_class
 
     
-    def getClient(self, *args: Any, **kwargs: Any) -> instructor.client.AsyncInstructor:
+    def getClient(self, *args: Any, **kwargs: Any) -> instructor.client.AsyncInstructor: 
         """
         Returns the client for the LLM based on the enum value.
 
@@ -43,7 +42,7 @@ class SupportedClient(Enum) :
         return self._clientClass(*args, **kwargs).getClient(self.name, self.getModel())
     
     
-    def getAPIKey(self) -> str:
+    def getAPIKey(self) -> str: 
         """
         Returns the API key for the LLM
 
@@ -59,7 +58,7 @@ class SupportedClient(Enum) :
         return key
     
 
-    def getModel(self) -> str:
+    def getModel(self) -> str: 
         """
         Returns the model for the LLM
 
@@ -76,23 +75,23 @@ class SupportedClient(Enum) :
     
     
     @property
-    def name(self) -> str:
+    def name(self) -> str: 
         """Get the name of the LLM."""
         return self._llm_name
     
     
     @property
-    def _api(self) -> str:
+    def _api(self) -> str: 
         """Get the name of the environment variable for the API key."""
         return self._api_key
     
     
     @property
-    def _defaultModel(self) -> str:
+    def _defaultModel(self) -> str: 
         """Get the name of the environment variable for the model."""
         return self._default_model
     
     @property
-    def _clientClass(self) -> Type[Client]:
+    def _clientClass(self) -> Type[Client]: 
         """Get the class of the client for the LLM."""
         return self._client_class
